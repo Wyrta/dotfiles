@@ -2,6 +2,7 @@
 import sys
 import subprocess
 import re
+import os
 
 def get_info() -> str:
     sink = subprocess.run(
@@ -37,6 +38,8 @@ def print_choice(choices: list):
 
 
 def main():
+    os.environ["LC_ALL"] = "C"
+
     sinks = get_info()
 
     devices = proc_devices(sinks)
